@@ -1,5 +1,5 @@
 ---
-title: "Lab N - Lab Title"
+title: "Title"
 author: "First Last"  
 output:
   html_document:
@@ -43,7 +43,7 @@ echo_chunks    <- FALSE #Toggle for debugging.
 message_chunks <- FALSE #Toggle for debugging.
 options(width=100) # number of characters to display in the output (dflt = 80)
 ggplot2::theme_set(ggplot2::theme_bw()) # common theme for all graphs
-read_chunk("./analysis/templates/lab-template-isolated.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./analysis/report/report-isolated.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 # Environment

@@ -1,5 +1,5 @@
 ---
-title: "Lab N - Lab Title"
+title: "Title"
 author: "First Last"  
 output:
   html_document:
@@ -92,43 +92,25 @@ neat <- function(x, output_format = "html"){
 
 # Data
 ```{r load-data, results='show', message=FALSE}
-path_file <- "../../data-public/raw/Tableau_10_Training_Files/Tableau 10 Training Practice Data.xlsx"
-sheet_names <- readxl::excel_sheets(path_file)
-dto <- list()
-for(sheet_i in sheet_names){
-   # i <- sheet_names[1]
-  dto[[sheet_i]] <- readxl::read_xlsx(path_file, sheet = sheet_i)
-}
-ds_raw <- dto$`01 - Preoperative Risk Factors`
+
 ```
 
 ```{r tweak-data,echo = echo_chunks, results='show', message=message_chunks}
-ds0 <- ds_raw %>% 
-  janitor::clean_names() # because lowercase is easier to type and remember
-ds0 %>% glimpse()
+
 ```
 
 # Analysis
 
 ```{r table-1, echo = echo_chunks, results='show', message=message_chunks}
-ds0 %>% neat()
+
 ```
 
 ```{r graph-1, echo = echo_chunks, results='show', message=message_chunks}
-ds0 %>% 
-  ggplot(aes(y=hospital_percent, x = preoperative_risk_factors))+
-  geom_col(fill="salmon", alpha = .5, color = "black")+
-  coord_flip()+
-  labs(title = "Graph 1")
+
 ```
 
 ```{r graph-2, echo = echo_chunks, results='show', message=message_chunks}
-g2 <- ds0 %>% 
-  ggplot(aes(y=risk_factors_count, x = preoperative_risk_factors))+
-  geom_col(fill = "skyblue", alpha = .5, color = "black")+
-  coord_flip()+
-  labs(title = "Graph 2")
-g2
+
 ```
 
 Session Information {#session-info}
