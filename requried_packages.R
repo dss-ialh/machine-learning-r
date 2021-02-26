@@ -70,5 +70,8 @@ pkgs <- c(
   "vip",
   "visdat",
   "xgboost",
-  "yardstick"
+  "yardstick",
+  "modeldata" # NOT INCLUDED IN BOOK BUT ONE OF DATA SETS USED IS NOW HERE
 )
+
+install.packages(pkgs)
