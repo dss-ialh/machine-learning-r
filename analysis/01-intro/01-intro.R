@@ -23,32 +23,6 @@ source("./scripts/common-functions.R")
 
 
 # ---- declare-globals ---------------------------------------------------------
-# custom function for HTML tables
-neat <- function(x, output_format = "html"){
-  # knitr.table.format = output_format
-  if(output_format == "pandoc"){
-    x_t <- knitr::kable(x, format = "pandoc")
-  }else{
-    x_t <- x %>%
-      # x %>%
-      # neat() %>%
-      knitr::kable(format=output_format) %>%
-      kableExtra::kable_styling(
-        bootstrap_options = c("striped", "hover", "condensed","responsive"),
-        # bootstrap_options = c( "condensed"),
-        full_width = F,
-        position = "left"
-      )
-  }
-  return(x_t)
-}
-# Note: when printing to Word or PDF use `neat(output_format =  "pandoc")`
-
-
-prints_folder <- paste0("./analysis/.../prints/", strftime(Sys.Date()))
-if(!file.exists(prints_folder)){
-  dir.create(file.path(prints_folder))
-}
 
 ggplot2::theme_set(
   ggplot2::theme_bw(
@@ -57,46 +31,53 @@ ggplot2::theme_set(
       strip.background = element_rect(fill="grey95", color = NA)
     )
 )
-quick_save <- function(g,name,...){
-  ggplot2::ggsave(
-    filename = paste0(name,".jpg"),
-    plot     = g,
-    device   = "jpg",
-    path     = prints_folder,
-    # width    = width,
-    # height   = height,
-    # units = "cm",
-    dpi      = 'retina',
-    limitsize = FALSE,
-    ...
-  )
-}
+
 # ---- load-data ---------------------------------------------------------------
 
+# Please see section 1.4 of book for data set descriptions
+
 # AMES HOUSING
+
 # access data
 ames <- AmesHousing::make_ames()
 
 # initial dimension
 dim(ames)
-## [1] 2930   81
 
 # response variable
 head(ames$Sale_Price)
 
+#glimpse at data
+glimpse(ames)
+
+ames %>% neat_DT()
 
 # Employee Attrition
 # Note this is different from the book as the data has moved
 
+# Can not pull data without using utlity pacakge
 data("attrition", package = "modeldata")
 
-# initial dimension
-dim(attrition)
-## [1] 1470   31
 
-# response variable
-head(attrition$Attrition)
+attrition %>% neat_DT()
 
+
+#MNIST Data
+
+mnist <- dslabs::read_mnist()
+
+# This data is split into test and train automatically.
+# Data is too large to view
+
+# Grocery Data
+
+# URL to download/read in the data
+url <- "https://koalaverse.github.io/homlr/data/my_basket.csv"
+
+# Access data
+my_basket <- readr::read_csv(url)
+
+my_basket %>% neat_DT()
 
 
 
