@@ -1,50 +1,96 @@
 package_name,install,on_cran,github_username,description
-broom,FALSE,TRUE,tidymodels,Convert statistical analysis objects from R into tidy format.
-car,FALSE,TRUE,,For it's `recode()` function.
-checkmate,TRUE,TRUE,,Checks/asserts values.
-classInt,TRUE,TRUE,,Choosing univariate class intervals for mapping or other graphics purposes.
-config,TRUE,TRUE,,Declare repo-wide values.
-colorspace,FALSE,TRUE,,Explicit control over the HCL color scheme.
-DBI,FALSE,TRUE,,A database interface (DBI) definition for communication between R and RDBMSs.
-digest,FALSE,TRUE,,Creates SHA hashes to obfuscate PHI.
-dplyr,TRUE,TRUE,tidyverse,Next generation of plyr.
-evaluate,FALSE,TRUE,,A package that Hadley et al use a lot in their packages.  It helps when things are passed by reference.
-flexdashboard,FALSE,TRUE,rstudio,Easy interactive dashboards for R.
-foreign,FALSE,TRUE,,Reads data in other formats.
-ggplot2,TRUE,TRUE,,Graphing.
-ggthemes,FALSE,TRUE,,"Extra themes, scales and geoms for ggplot."
-googleVis,FALSE,TRUE,,"JavaScript-based visualizations, like scrollable tables."
-ggmap,FALSE,TRUE,,"Maps & graphics, based on ggplot."
-grid,TRUE,TRUE,,foundation underneath ggplot2.
-gridExtra,TRUE,TRUE,,Additional functions for manipulating `grid` objects.
-kableExtra,TRUE,TRUE,,Construct Complex Table with knitr's kable function.
-knitr,TRUE,TRUE,,For reporting.
-lme4,TRUE,TRUE,,Multilevel models.
-lubridate,TRUE,TRUE,,Consistent/convenient function signatures for manipulating dates.
-magrittr,TRUE,TRUE,,Improve the readability of R code with the pipe.
-mgcv,FALSE,TRUE,,Mixed GAM Computation Vehicle with GCV/AIC/REML Smoothness Estimation.
-modeest,FALSE,TRUE,,Estimating the mode of unimodal distributions.
-odbc,FALSE,TRUE,,Connect to ODBC databases (using the DBI interface).
-OuhscMunge,TRUE,FALSE,OuhscBbmc,Data manipulation operations.
-plotly,FALSE,TRUE,ropensci,An interactive graphing library for R
-plyr,FALSE,TRUE,,Important for most of our data manipulation.
-purrr,TRUE,TRUE,,A functional programming toolkit for R.
-random,FALSE,TRUE,,Creates random numbers for salts.
-Rcpp,TRUE,TRUE,,Seamless R and C++ Integration.
-RcppRoll,TRUE,TRUE,,Fast rolling functions through Rcpp.
-RColorBrewer,TRUE,TRUE,,Explicit control over the Color Brewer colors.  See http://colorbrewer2.org/.
-readr,TRUE,TRUE,,Reads data files from disk.
-remotes,TRUE,TRUE,r-lib,"Install R packages from GitHub, GitLab, Bitbucket, git, svn repositories, URLs."
-reshape2,FALSE,TRUE,,Data manipulation not covered in plyr.
-rlang,TRUE,TRUE,,Low-level API for programming with R .
-rmarkdown,TRUE,TRUE,rstudio,Needed for knitr and reports.
-RSQLite,TRUE,TRUE,rstudio,Interface for SQLite.
-scales,TRUE,TRUE,,Graphical scales.
-stringi,FALSE,TRUE,,Consistent/convenient function signatures for manipulating text.
-stringr,FALSE,TRUE,,Consistent/convenient function signatures for manipulating text.
-TabularManifest,TRUE,FALSE,Melinae,Perform EDA quicker using configure files.
-testit,TRUE,TRUE,,Has the useful `assert()` function.
-testthat,TRUE,TRUE,r-lib,Heavier testing framework that's good for package development.
-tidyr,TRUE,TRUE,,Data manipulation; replaces much of reshape2; works w/ magrittr and dplyr well.
-xtable,FALSE,TRUE,,"Formats tables, especially for LaTeX output."
-yaml,TRUE,TRUE,,Needed for knitr and reports.
+ AmesHousing,TRUE,TRUE,,
+AppliedPredictiveModeling,TRUE,TRUE,,
+bookdown,TRUE,TRUE,,
+broom,TRUE,TRUE,,
+caret,TRUE,TRUE,,
+caretEnsemble,TRUE,TRUE,,
+cluster,TRUE,TRUE,,
+cowplot,TRUE,TRUE,,
+DALEX,TRUE,TRUE,,
+data.table,TRUE,TRUE,,
+doParallel,TRUE,TRUE,,
+dplyr,TRUE,TRUE,,
+dslabs,TRUE,TRUE,,
+e1071,TRUE,TRUE,,
+earth,TRUE,TRUE,,
+emo,TRUE,TRUE,,
+extracat,TRUE,TRUE,,
+factoextra,TRUE,TRUE,,
+foreach,TRUE,TRUE,,
+forecast,TRUE,TRUE,,
+ggbeeswarm,TRUE,TRUE,,
+ggmap,TRUE,TRUE,,
+ggplot2,TRUE,TRUE,,
+ggplotify,TRUE,TRUE,,
+gbm,TRUE,TRUE,,
+glmnet,TRUE,TRUE,,
+gridExtra,TRUE,TRUE,,
+h2o,TRUE,TRUE,,
+HDclassif,TRUE,TRUE,,
+iml,TRUE,TRUE,,
+ipred,TRUE,TRUE,,
+kableExtra,TRUE,TRUE,,
+keras,TRUE,TRUE,,
+kernlab,TRUE,TRUE,,
+knitr,TRUE,TRUE,,
+lime,TRUE,TRUE,,
+markdown,TRUE,TRUE,,
+MASS,TRUE,TRUE,,
+Matrix,TRUE,TRUE,,
+mclust,TRUE,TRUE,,
+mlbench,TRUE,TRUE,,
+NbClust,TRUE,TRUE,,
+pBrackets,TRUE,TRUE,,
+pcadapt,TRUE,TRUE,,
+pdp,TRUE,TRUE,,
+plotROC,TRUE,TRUE,,
+pls,TRUE,TRUE,,
+pROC,TRUE,TRUE,,
+purrr,TRUE,TRUE,,
+ranger,TRUE,TRUE,,
+readr,TRUE,TRUE,,
+recipes,TRUE,TRUE,,
+reshape2,TRUE,TRUE,,
+ROCR,TRUE,TRUE,,
+rpart,TRUE,TRUE,,
+rpart.plot,TRUE,TRUE,,
+rsample,TRUE,TRUE,,
+scales,TRUE,TRUE,,
+sparsepca,TRUE,TRUE,,
+stringr,TRUE,TRUE,,
+subsemble,TRUE,TRUE,,
+SuperLearner,TRUE,TRUE,,
+tfruns,TRUE,TRUE,,
+tfestimators,TRUE,TRUE,,
+tidyr,TRUE,TRUE,,
+vip,TRUE,TRUE,,
+visdat,TRUE,TRUE,,
+xgboost,TRUE,TRUE,,
+yardstick,TRUE,TRUE,,
+modeldata,TRUE,TRUE,,
+OuhscMunge,TRUE,FALSE,OuhscBbmc,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,Data manipulation operations.
