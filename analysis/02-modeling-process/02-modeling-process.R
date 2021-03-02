@@ -115,6 +115,12 @@ knn_fit <- train(
   metric = "RMSE"
 )
 
+# Print and plot the CV results
+knn_fit
+
+ggplot(knn_fit)
+
+
 # ---- tweak-data --------------------------------------------------------------
 
 
