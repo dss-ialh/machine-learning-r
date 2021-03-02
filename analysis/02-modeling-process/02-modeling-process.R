@@ -7,6 +7,11 @@ cat("Working directory: ", getwd()) # Must be set to Project Directory
 # Session --> Set Working Directory --> To Project Directory location
 # Project Directory should be the root by default unless overwritten
 
+# Chapter 2 Model Process is an overview of whats to come.
+# The book lists one example, for this script only the in book example is used
+# Code is copied as as is from book, no changes made
+# Further scripts will examine specific models
+
 # ---- load-packages -----------------------------------------------------------
 library(magrittr)  # pipes
 library(dplyr)     # data wrangling
@@ -50,10 +55,10 @@ neat <- function(x, output_format = "html"){
 # Note: when printing to Word or PDF use `neat(output_format =  "pandoc")`
 
 
-prints_folder <- paste0("./analysis/.../prints/", strftime(Sys.Date()))
-if(!file.exists(prints_folder)){
-  dir.create(file.path(prints_folder))
-}
+# prints_folder <- paste0("./analysis/.../prints/", strftime(Sys.Date()))
+# if(!file.exists(prints_folder)){
+#   dir.create(file.path(prints_folder))
+# }
 
 ggplot2::theme_set(
   ggplot2::theme_bw(
@@ -76,9 +81,39 @@ quick_save <- function(g,name,...){
     ...
   )
 }
-# ---- load-data ---------------------------------------------------------------
+
+# ---- book-example ---------------------------------------------------------------
+
+ames <- AmesHousing::make_ames()
+
+# Stratified sampling with the rsample package
+set.seed(123)
+split <- initial_split(ames, prop = 0.7,
+                       strata = "Sale_Price")
+ames_train  <- training(split)
+ames_test   <- testing(split)
 
 
+# Specify resampling strategy
+cv <- trainControl(
+  method = "repeatedcv",
+  number = 10,
+  repeats = 5
+)
+
+# Create grid of hyperparameter values
+hyper_grid <- expand.grid(k = seq(2, 25, by = 1))
+
+# Tune a knn model using grid search
+# The following will take around 3.5 mins to run
+knn_fit <- train(
+  Sale_Price ~ .,
+  data = ames_train,
+  method = "knn",
+  trControl = cv,
+  tuneGrid = hyper_grid,
+  metric = "RMSE"
+)
 
 # ---- tweak-data --------------------------------------------------------------
 
