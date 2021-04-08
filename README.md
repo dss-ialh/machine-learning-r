@@ -10,3 +10,5 @@ Repository to accompany reading "Hands-On Machine Learning with R" by Bradley Bo
 # List of Data Sets
 
 - [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)  
+- [Kaggle Datasets](https://www.kaggle.com/datasets)  
+- [Google Data Search](https://datasetsearch.research.google.com/)
