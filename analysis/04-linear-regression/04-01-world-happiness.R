@@ -82,12 +82,87 @@ ds0 <- readr::read_csv(path)
 ds0 %>% glimpse()
 
 # ---- tweak-data --------------------------------------------------------------
+set.seed(42)
+
+index_1 <- caret::createDataPartition(ds0$happiness_score, p = .3, list =FALSE)
+ds_train <- ds0[index_1, ]
+ds_test <- ds0[-index_1, ]
+
+
+# ---- inspect ---------
+# check for multicollinearity
+GGally::ggduo(ds0 %>% select(-country,-continent))
+
+library(corrgram)
+corrgram(ds0, order=TRUE, lower.panel=panel.shade,
+         upper.panel=panel.pie)
+
+library(corrgram)
+corrgram(ds0,
+         lower.panel=panel.pts, upper.panel=panel.conf,
+         diag.panel=panel.density, order=TRUE)
 
 # ---- basic-model -------------------------------------------------------------
+names(ds0)
+outcome <- "happiness_score"
+predictors <- c(
+  "gdp_per_capita"
+  ,"social_support"
+  ,"health"
+  ,"freedom"
+  ,"generosity"
+  ,"government_trust"
+  ,"dystopia_residual"
+  ,"continent"
+)
+equation_formula <- paste0(
+  outcome, " ~ ", paste0(predictors, collapse = " + ")
+) %>% as.formula()
 
+model00 <- lm( happiness_score ~ gdp_per_capita + social_support + health +
+               freedom + generosity + government_trust + dystopia_residual +
+               continent, data = ds_train)
+
+summary(model00)
+
+
+model1 <- lm( happiness_score ~ gdp_per_capita, data = ds_train)
+
+summary(model1)
+confint(model1, level = .95)
 
 # ---- table-1 -----------------------------------------------------------------
 
+ds0 %>% ggplot(aes(x=happiness_score))+geom_histogram() + facet_wrap(~continent)
+
+# ---- -------
+set.seed(1234)  # for reproducibility
+(cv_model1 <- train(
+  form = happiness_score ~ freedom,
+  data = ds_train,
+  method = "lm",
+  trControl = trainControl(method = "cv", number = 10)
+))
+
+(cv_model2 <- train(
+  form = happiness_score ~ freedom + government_trust,
+  data = ds_train,
+  method = "lm",
+  trControl = trainControl(method = "cv", number = 10)
+))
+
+(cv_model3 <- train(
+  form = happiness_score ~ freedom + government_trust + generosity,
+  data = ds_train,
+  method = "lm",
+  trControl = trainControl(method = "cv", number = 10)
+))
+
+summary(resamples(list(
+  model1 = cv_model1,
+  model2 = cv_model2,
+  model3 = cv_model3
+)))
 # ---- graph-1 -----------------------------------------------------------------
 
 
