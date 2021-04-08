@@ -16,7 +16,8 @@ library(tidyr)     # data wrangling
 library(forcats)   # factors
 library(stringr)   # strings
 library(lubridate) # dates
-
+library(caret) # cross-validation
+library(vip) # variable importance
 # ---- load-sources ------------------------------------------------------------
 
 source("./scripts/common-functions.R")
@@ -26,7 +27,7 @@ source("./scripts/common-functions.R")
 # custom function for HTML tables
 neat <- function(x, output_format = "html"){
   # knitr.table.format = output_format
-  if(output_format == "pandoc"){
+  if(output_fo...rmat == "pandoc"){
     x_t <- knitr::kable(x, format = "pandoc")
   }else{
     x_t <- x %>%
@@ -45,7 +46,7 @@ neat <- function(x, output_format = "html"){
 # Note: when printing to Word or PDF use `neat(output_format =  "pandoc")`
 
 
-prints_folder <- paste0("./analysis/.../prints/", strftime(Sys.Date()))
+prints_folder <- paste0("./analysis/04-linear-regression/prints/", strftime(Sys.Date()))
 if(!file.exists(prints_folder)){
   dir.create(file.path(prints_folder))
 }
@@ -77,7 +78,12 @@ path <- "./data-public/raw/world-happiness/2020_report.csv"
 # ---- load-data ---------------------------------------------------------------
 ds0 <- readr::read_csv(path)
 
+# ---- inspect-data ------------------------------------------------------------
+ds0 %>% glimpse()
+
 # ---- tweak-data --------------------------------------------------------------
+
+# ---- basic-model -------------------------------------------------------------
 
 
 # ---- table-1 -----------------------------------------------------------------
